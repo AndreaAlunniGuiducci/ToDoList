@@ -1,0 +1,39 @@
+@import "./../../libs/variables.scss";
+
+.header {
+  padding: 15px $sidePadding;
+
+  display: flex;
+  justify-content: space-between;
+
+  h1 {
+    margin: 0;
+    color: $main;
+    font-size: 3.2rem;
+    font-family: $fancyFont;
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      display: flex;
+
+      a {
+        text-decoration: none;
+        color: $main;
+        padding: 15px;
+        transition: $baseTransition;
+
+        &:hover {
+          // .header nav ul a:hover { ... }
+          background-color: lighten($main, 40%);
+        }
+
+        &.active {
+          background-color: $main;
+          color: $white;
+        }
+      }
+    }
+  }
+}

@@ -1,23 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { useReducer, Suspense, lazy } from "react";
+import { Routes, Route } from "react-router-dom";
+
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+// import Home from "./pages/Home";
+
+const Home = lazy(() => import(/*webpackChunkName: "Home"*/ './pages/Home'));
+const CreateGuest = lazy(() => import(/*webpackChunkName: "Guest"*/ './pages/CreateGuest'));
+
+const INIT_STATE = {
+  name: "ToDoList",
+  nav: [
+    { link: "/", label: "Home" },
+  ],
+  ToDo: [
+    { link: "/data", label: 'Data' },
+    { link: "/location", label: 'Location' },
+    { link: "/CreateGuest", label: 'Invitati' },
+  ],
+  fontFamily: "",
+};
+
+const reducer = (state, action) => {
+
+  return state;
+}
+  ;
 
 function App() {
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header name={state.name} font={state.fontFamily} links={state.nav} />
+
+      <Routes>
+        <Route path="/" element={<Suspense fallback={<div>Loading...</div>}>
+          <Home links={state.ToDo} />
+        </Suspense>} />
+        <Route path="/CreateGuest" element={<Suspense fallback={<div>Loading...</div>}>
+          <CreateGuest />
+        </Suspense>} />
+      </Routes>
+
+      <Footer />
     </div>
   );
 }
