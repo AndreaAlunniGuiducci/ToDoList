@@ -8,8 +8,6 @@ const Home = (props) => {
 
   return (
     <div>
-      <h2>Inizia ad organizzare il tuo evento</h2>
-      <h4>Ecco una lista di cose da controllare</h4>
       <ul>
         {links.map((item, index) => (
           <li key={index}>

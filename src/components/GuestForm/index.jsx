@@ -1,6 +1,6 @@
 const GuestForm = (props) => {
-    const guestName = props.guestname || 'Guest';
-    const guestPhone = props.guestphone || 'Phone';
+    const guestname = props.guestname || 'Guest';
+    const guestphone = props.guestphone || 'Phone';
     const formBtn = props.formBtn || '';
 
     return (
@@ -13,7 +13,7 @@ const GuestForm = (props) => {
                     name="guest-name"
                     id="guest-name"
                     placeholder="Nome"
-                    onChange={(e) => guestName(e.target.value)}
+                    onChange={(e) => guestname(e.target.value)}
                     required>
                 </input>
 
@@ -23,7 +23,7 @@ const GuestForm = (props) => {
                     name="guest-phone"
                     id="guest-phone"
                     placeholder="+39"
-                    onChange={(e) => guestPhone(e.target.value)}
+                    onChange={(e) => guestphone(e.target.value)}
                     required></input>
                 <button onClick={formBtn}>Aggiungi invitato</button>
             </form>
