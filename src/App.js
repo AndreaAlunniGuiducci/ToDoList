@@ -6,14 +6,15 @@ import Footer from "./components/Footer";
 // import Home from "./pages/Home";
 
 const Home = lazy(() => import(/*webpackChunkName: "Home"*/ './pages/Home'));
-const NewEvent = lazy(() => import(/*webpackChunkName: "New event"*/ './pages/NewEvent'));
-const CreateGuest = lazy(() => import(/*webpackChunkName: "Create Guest"*/ './pages/CreateGuest'));
+const CreateEvent = lazy(() => import(/*webpackChunkName: "New event"*/ './pages/CreateEvent'));
+const Event = lazy(() => import(/*webpackChunkName: "New event"*/ './pages/Event'));
 
 const INIT_STATE = {
   name: "ToDoList",
   nav: [
     { link: "/", label: "Home" },
-    { link: "/new-event", label: "Crea nuovo evento" },
+    { link: "/create-event", label: "Crea nuovo evento" },
+    { link: "/event", label: "Evento" },
   ],
   ToDo: [
   ],
@@ -37,11 +38,11 @@ function App() {
         <Route path="/" element={<Suspense fallback={<div>Loading...</div>}>
           <Home links={state.ToDo} />
         </Suspense>} />
-        <Route path="/new-event" element={<Suspense fallback={<div>Loading...</div>}>
-          <NewEvent />
+        <Route path="/create-event" element={<Suspense fallback={<div>Loading...</div>}>
+          <CreateEvent />
         </Suspense>} />
-        <Route path="/createguest" element={<Suspense fallback={<div>Loading...</div>}>
-          <CreateGuest />
+        <Route path="/event" element={<Suspense fallback={<div>Loading...</div>}>
+          <Event />
         </Suspense>} />
       </Routes>
 
