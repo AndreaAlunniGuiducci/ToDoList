@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
-import styles from "./Home.module.scss";
 
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Home = (props) => {
   const links = props.links || [{ link: "/", label: "Link" }];
