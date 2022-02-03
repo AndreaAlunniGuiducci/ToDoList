@@ -28,7 +28,7 @@ const reducer = (state, action) => {
   ;
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, INIT_STATE);
+  const [state] = useReducer(reducer, INIT_STATE);
 
   return (
     <div>

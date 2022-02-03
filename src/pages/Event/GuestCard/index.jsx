@@ -7,8 +7,8 @@ const GuestCard = (props) => {
             <div>
                 <h3>{name}</h3>
                 <p>{phone}</p>
-                <a><img src="https://img.icons8.com/ios/50/000000/circled-v.png" /></a>
-                <a><img src="https://img.icons8.com/ios/50/000000/xbox-x.png" /></a>
+                <img src="https://img.icons8.com/ios/50/000000/circled-v.png" alt='confermato' />
+                <img src="https://img.icons8.com/ios/50/000000/xbox-x.png" alt='rifiutato' />
             </div>
         </div>
     )
