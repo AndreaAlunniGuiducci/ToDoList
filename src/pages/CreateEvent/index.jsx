@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { db } from "./../../firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, doc, setDoc } from "firebase/firestore";
 import DateForm from './DateForm';
 import GuestForm from './GuestForm';
 
@@ -14,7 +14,7 @@ const CreateEvent = () => {
         e.preventDefault();
         const newDate = { date: date };
         console.log(newDate);
-        addDoc(collection(db, "eventDate"), newDate);
+        setDoc(doc(db, "eventDate", 'date'), newDate);
     }
     const SubmitGuest = (e) => {
         e.preventDefault();
