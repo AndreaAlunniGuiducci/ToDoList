@@ -1,4 +1,4 @@
-import { Card, ListGroup } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 const GuestCard = (props) => {
     const name = props.name || 'name';
