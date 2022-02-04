@@ -4,7 +4,7 @@ import { collection, onSnapshot } from "firebase/firestore";
 import GuestCard from "./GuestCard";
 
 const Event = () => {
-    const [eventDate, setEventDate] = useState();
+    const [eventDate, setEventDate] = useState(); //useState per data
     const [guestList, setGuestList] = useState([]); // useState per array contenente gli oggetti
 
 
@@ -41,8 +41,8 @@ const Event = () => {
 
     const giorniMancanti = () => {
         const today = new Date();
-        const eventDate1 = new Date(eventDate);
-        const diffTime = Math.abs(eventDate1 - today);
+        const date = new Date(eventDate);
+        const diffTime = Math.abs(date - today);
         const daysUntilEvent = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
         console.log(daysUntilEvent);
         return (daysUntilEvent);
@@ -51,8 +51,10 @@ const Event = () => {
     return (
         <div>
             <h1>Mancano {giorniMancanti()} giorni all'evento</h1>
-            {guestList.map((item, index) => <GuestCard name={item.name} phone={item.phone} key={index} />)}
-        </div>
+            <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around', justifyItems: 'center' }}>
+                {guestList.map((item, index) => <GuestCard name={item.name} phone={item.phone} key={index} />)}
+            </div>
+        </div >
     )
 }
 

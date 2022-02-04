@@ -21,11 +21,10 @@
       a {
         text-decoration: none;
         color: $main;
-        padding: 15px;
+        padding: 10px;
         transition: $baseTransition;
 
         &:hover {
-          // .header nav ul a:hover { ... }
           background-color: lighten($main, 40%);
         }
 
